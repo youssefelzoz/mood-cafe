@@ -1,0 +1,311 @@
+:root {
+    --bg-main: #f2e9e1;
+    /* بيج دافئ (بديل الأبيض) */
+    --bg-secondary: #e6ddd3;
+    /* بيج أغمق قليلاً للأقسام */
+    --dark-coffee: #4a3728;
+    /* البني (نادر الاستخدام للنصوص) */
+    --accent-gold: #c5a059;
+    /* ذهبي مطفي للهوية */
+    --text-main: #5e4d44;
+    /* لون النص الأساسي */
+    --font-title: 'El Messiri', serif;
+    --font-body: 'Cairo', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+/* ناف بار ناعم */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(242, 233, 225, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.logo {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    color: var(--dark-coffee);
+    font-weight: bold;
+}
+
+.logo span {
+    color: var(--accent-gold);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-gold);
+}
+
+/* الهيدر */
+/* الهيدر المطور ليملاً الشاشة بالكامل */
+header {
+    height: 100vh;
+    /* يغطي 100% من طول شاشة المتصفح */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* تم تحسين التدرج ليظهر النص بوضوح أكبر على خلفية البيج */
+    background: linear-gradient(rgba(242, 233, 225, 0.4), rgba(242, 233, 225, 0.4)),
+        url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1700');
+    background-size: cover;
+    background-position: center;
+    /* حركة "Parallax" خفيفة عند السكرول لزيادة الفخامة */
+    margin-bottom: 0;
+}
+
+.hero-content {
+    padding: 20px;
+    animation: fadeIn 1.5s ease-out;
+    /* أنميشن دخول ناعم للنص */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content h1 {
+    font-family: var(--font-title);
+    font-size: 4rem;
+    color: var(--dark-coffee);
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+/* الأقسام العامة */
+section {
+    padding: 100px 10%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+    font-family: var(--font-title);
+}
+
+.section-title h2 {
+    font-size: 2.8rem;
+    color: var(--dark-coffee);
+}
+
+.section-title .line {
+    width: 60px;
+    height: 2px;
+    background: var(--accent-gold);
+    margin: 15px auto;
+}
+
+/* قسم العروض (بيج أغمق قليلاً للتباين) */
+.offers-section {
+    background-color: var(--bg-secondary);
+    border-radius: 50px 50px 0 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--bg-main);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s;
+    border: 1px solid rgba(197, 160, 89, 0.1);
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.price-tag {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--accent-gold);
+    display: block;
+    margin: 10px 0;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #a89a90;
+    font-size: 0.9rem;
+    margin-left: 10px;
+}
+
+.badge {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: var(--accent-gold);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+}
+
+/* المنيو الكامل (في نفس الصفحة) */
+.full-menu {
+    background-color: var(--bg-main);
+}
+
+.menu-category {
+    margin-bottom: 50px;
+}
+
+.menu-category h3 {
+    font-family: var(--font-title);
+    font-size: 2rem;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--bg-secondary);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.menu-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed var(--accent-gold);
+}
+
+.item-info h4 {
+    font-size: 1.1rem;
+    color: var(--dark-coffee);
+}
+
+.item-info p {
+    font-size: 0.85rem;
+    color: #8d7b68;
+}
+
+/* سكشن التواصل واللوكيشن */
+.contact-section {
+    background-color: var(--bg-secondary);
+    border-radius: 0 0 50px 50px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.contact-info div {
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contact-info i {
+    width: 50px;
+    height: 50px;
+    background: var(--bg-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--accent-gold);
+    border: 1px solid var(--accent-gold);
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 350px;
+    background-color: var(--bg-main);
+    border-radius: 30px;
+    border: 2px solid var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-gold);
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 50px;
+    color: #8d7b68;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+
+    .menu-list,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+}
